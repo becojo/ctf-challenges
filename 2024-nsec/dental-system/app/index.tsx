@@ -384,14 +384,18 @@ const app = new Elysia()
       name: "heartbeat",
       pattern: "*/1 * * * *",
       async run() {
-        const response = await fetch(`http://127.0.0.1/app/root-admin`, {
-          headers: {
-            Cookie: process.env.ADMIN_JWT || "",
-          },
-        });
+        try {
+          const response = await fetch(`http://127.0.0.1/app/root-admin`, {
+            headers: {
+              Cookie: `authToken=${process.env.ADMIN_JWT}`,
+            },
+          });
 
-        if (!response.ok) {
-          console.error("heartbeat error");
+          if (!response.ok) {
+            console.error("heartbeat error", process.env.ADMIN_JWT, response);
+          }
+        } catch(e) {
+          console.error("hearbeat exeception", e)
         }
       },
     }),
