@@ -1,0 +1,190 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Root Manager</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <style>
+      body {
+        margin: 0;
+        background-image: linear-gradient(
+          to right top,
+          #3d444d,
+          #3b444f,
+          #384550,
+          #354552,
+          #324653
+        );
+        background-attachment: fixed;
+      }
+
+      canvas {
+        display: block;
+        margin: 5% auto;
+        border-radius: 10px;
+        height: 600px !important;
+      }
+
+      canvas:after {
+        content: "Root Manager";
+        display: block;
+        text-align: center;
+        color: white;
+        font-size: 2em;
+        margin-top: 20px;
+      }
+      .left {
+        float: left;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      let img;
+
+      let teeth = [
+        [55, 219, "Type", ""],
+        [62, 182, "Type", ""],
+        [79, 144, "Type", ""],
+        [92, 113, "Type", ""],
+        [111, 87, "Type", ""],
+        [129, 62, "Type", ""],
+        [166, 47, "Type", ""],
+        [208, 36, "Type", ""],
+        [267, 37, "Type", ""],
+        [309, 47, "Type", "Cavities"],
+        [344, 63, "Type", ""],
+        [363, 88, "Type", ""],
+        [381, 113, "Type", ""],
+        [396, 145, "Type", ""],
+        [410, 184, "Type", ""],
+        [416, 221, "Type", ""],
+        [409, 268, "Type", ""],
+        [406, 307, "Type", "Coffee Discoloration"],
+        [392, 347, "Type", ""],
+        [375, 383, "Type", ""],
+        [349, 405, "Type", ""],
+        [323, 427, "Type", ""],
+        [290, 437, "Type", ""],
+        [257, 439, "Type", ""],
+        [219, 439, "Type", ""],
+        [185, 436, "Type", ""],
+        [153, 427, "Type", ""],
+        [126, 407, "Type", ""],
+        [100, 383, "Type", ""],
+        [82, 349, "Type", ""],
+        [70, 307, "Type", ""],
+        [66, 268, "Type", ""],
+      ];
+      let mapSide = 25;
+
+      function setup() {
+        createCanvas(500, 500, document.getElementById("visualization"));
+        noStroke();
+
+        // Kaligula, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
+        img = loadImage("teeth.svg");
+      }
+
+      var label = {
+        text: "",
+        x: 0,
+        y: 0,
+      };
+
+      function draw() {
+        background(0x7d, 0x6c, 0x65);
+        let x = mouseX;
+        let y = mouseY;
+
+        fill(255, 255, 255);
+        for (let i = 0; i < teeth.length; i++) {
+          let [mx, my, t, defects] = teeth[i];
+
+          if (defects.length > 0) {
+            fill(((i * 1337 + frameCount * 2) % 127) + 127, 0, 0);
+            ellipse(mx + mapSide / 2, my + mapSide / 2, mapSide, mapSide);
+          }
+
+          if (
+            mouseX > mx &&
+            mouseX < mx + mapSide &&
+            mouseY > my &&
+            mouseY < my + mapSide
+          ) {
+            fill(255, 255, 255, 100);
+            rect(mx, my, mapSide, mapSide);
+
+            if (mouseIsPressed) {
+              label.text = `#${i + 1}`;
+              label.y = my;
+              label.x = mx;
+
+              document.getElementById("number").innerText = `Number: ${i + 1}`;
+              document.getElementById("name").innerText = `Type: ${t}`;
+              document.getElementById("defects").innerText = `Defects: ${
+                defects.length > 0 ? defects : "N/A"
+              }`;
+            }
+
+            break;
+          }
+        }
+
+        if (label.text !== "") {
+          fill(255, 255, 255);
+          //rect(label.x, label.y, mapSide, mapSide);
+        }
+
+        filter(BLUR, 10);
+
+        if (label.text !== "") {
+          textSize(32);
+          fill(0, 102, 153);
+          // text(label.text, 0, 50);
+
+          // circle the 25x25 square around label
+          noFill();
+          stroke(255, 0, 0);
+          strokeWeight(5);
+          var s = Math.sin(frameCount * 0.1) * 10;
+          ellipse(
+            label.x + mapSide / 2,
+            label.y + mapSide / 2,
+            50 + s,
+            (50 + s) * 0.8,
+          );
+        }
+
+        stroke(215, 215, 255);
+        strokeWeight(5);
+
+        image(img, width * 0.05, height * 0.05, width * 0.9, height * 0.9);
+        noStroke();
+      }
+    </script>
+
+    <div>
+      <div class="left">
+        <canvas id="visualization"></canvas>
+      </div>
+
+      <div class="left">
+        <h3 id="number"></h3>
+        <p id="name"></p>
+        <p id="defects"></p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/p5@1.9.1/lib/p5.js"
+      integrity="sha256-iAuyeVyvLm0+PZ+09c+48fruz9Fa4nFIJO2UBzikCBs="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

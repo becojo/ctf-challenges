@@ -1,0 +1,16 @@
+providers:
+  redis:
+    endpoints:
+      - "127.0.0.1:6379"
+
+entryPoints:
+  web:
+   address: ":80"
+   forwardedHeaders:
+      insecure: true
+
+  FLAG-e1aa864dc80ccaa673045834f9e1f9c2:
+    address: "127.0.0.1:9999"
+
+api:
+  dashboard: true
