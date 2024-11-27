@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Truncator 2024</title>
+        <style>
+         @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+         body {
+             background-image: url(https://i.imgur.com/pHiO7RM.gif);
+             background-color: red;
+             background-repeat: no-repeat;
+             background-size: 100% 100%;
+
+         }
+
+         .letter {
+             font-family: 'Marck Script', cursive;
+             font-size: 1.8rem;
+             width: 95%;
+             max-width: 800px;
+             margin: 0 auto;
+             background-image: url(https://i.imgur.com/FQIadiT.jpg);
+             background-size: 100% 100%;
+             padding: 70px 30px;
+             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+             border-radius: 3px;
+             overflow: hidden;
+         }
+
+         table {
+             max-width: 800px;
+             width: 95%;
+             margin: 0 auto;
+             border-spacing: 3px;
+             color: black;
+             background-color: #FFFFE0;
+             margin-bottom: 30vh;
+             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+         }
+
+         textarea {
+             display: block;
+             width: 100%;
+             height: 5rem;
+         }
+
+         .app {
+             margin-top: 50px;
+             font-family: monospace;
+         }
+
+         .letter p {
+             margin: 0;
+             margin-bottom: 1.5rem;
+         }
+
+         table input[type=submit] {
+             width: 100%;
+             font: inherit;
+             font-size: 1.25rem;
+             padding: 0.5rem 0;
+         }
+
+         table input[type=number] {
+             width: 100%;
+             font: inherit;
+             font-size: 1.25rem;
+             padding: 0.5rem 0;
+             text-align: center;
+         }
+
+         table h2 {
+             letter-spacing: 0.1rem;
+             text-transform: uppercase;
+             text-align: center;
+         }
+        </style>
+    </head>
+    <body>
+
+        <% if @html %>
+            <div class="app">
+            <table border="2">
+                    <tr>
+                        <td>
+                            <h2>Truncator 2024</h2>
+                        </td>
+                    </tr>
+                <tr>
+                    <td><b>Output</b></td>
+                </tr>
+                <tr>
+                    <td><%= @html %></td>
+                </tr>
+            </table>
+            </div>
+        <% else %>
+        <div class="letter">
+            <p>Ho ho ho! Merry Christmas, my dear friends! Santa Claus here, checking in from the North Pole. Now, I've noticed something quite interesting happening with the little ones these days. You see, back in the day, children would write their wish lists with good old-fashioned paper and pen. But now, oh my, things have changed!</p>
+            <p>Kids these days are so tech-savvy, using AI tools to craft wish lists longer than the naughty and nice list combined! They've even taken up learning HTML – yes, you heard it right, HTML! It seems they're not just asking for toys; they're asking for gadgets, gizmos, and things I can't even pronounce.</p>
+            <div>But fear not, for Santa has a surprise up his red velvet sleeve. I recently received the Truncator 2024, a magical tool that helps jolly old me deal with these wish lists that seem to go on and on. It understands HTML, can you believe it? Now, I can take those lengthy wish lists and trim them down to a more manageable size. It's like a Christmas miracle for Santa and his hardworking elves!</div>
+            <img src="https://i.imgur.com/Yt9rFIy.png" style="width: 200px; float: right; margin-top: -35px;">
+        </div>
+
+        <div class="app">
+            <form action="/truncate" method="post">
+                <table border="2">
+                    <tr>
+                        <td colspan="3">
+                            <h2>Truncator 2024</h2>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td><center>Wishlist</center></td>
+                        <td colspan="2">
+                            <textarea name="html" type="text"><ul>
+  <%= ["ai pin", "hoverboard", "laser eyes", "monkey pic", "astroscan", "nanocharge", "solarflux", "nebula", "honeypot", "spot"].sample(4).map{"<li>#{_1}</li>"}.join("\n  ") %>
+</ul></textarea></td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" colspan="3"><b>Options</b></td>
+                    </tr>
+                    <tr>
+                        <td align="center">Max Length</td>
+                        <td></td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name='options[{"ellipsis":"..."}]' checked/>
+                                Use ellipsis
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input name="length" type="number" min="0" max="255" value="30" /></td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name='options[{"length_in_chars":true}]' checked/>
+                                Chars
+                            </label>
+                        </td>
+                        <td>
+                            <label>
+                                <input type="checkbox" name='options[{"length_in_chars":false}]'/>
+                                Words
+                            </label>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <input type="submit" value="Truncate"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" align="right">
+                            <a href="/source">SOURCE CODE</a>
+                        </td>
+                    </tr>
+                </table>
+
+            </form>
+        </div>
+        <% end %>
+    </body>
+</html>
