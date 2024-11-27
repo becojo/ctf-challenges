@@ -1,0 +1,18 @@
+<div>
+  <% if flash[:action] %>
+    <img src="/<%= flash[:action]%>.jpg"/>
+    <audio autoplay>
+      <source src="/<%= flash[:action] %>.mp3" type="audio/mpeg">
+    </audio>
+  <% end %>
+
+  <p id="action">
+    🎄 <a href="/api/execute?command=reaction&args[id]=spook">🎁 Spook</a> or <a href="/api/execute?command=reaction&args[id]=doot">🎺 Doot</a> 🎄
+  </p>
+
+  <p>
+    <a href="/api/execute?command=source">
+      Source Code
+    </a>
+  </p>
+</div>

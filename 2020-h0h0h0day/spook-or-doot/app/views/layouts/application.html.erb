@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spook || Doot</title>
+    <link rel="icon" href="/favicon.png" sizes="32x32">
+    <style>
+     body  {
+         background-color: #333;
+         color: green;
+         font-family: monospace;
+         font-size: 2rem;
+         text-align: center;
+         background-image: url(/bg.jpg);
+         background-size: cover;
+     }
+
+     #action a {
+         padding: 0.5em 0.5em;
+         text-decoration: none;
+         font-weight: bold;
+         letter-spacing: 0.2em;
+         border: 5px outset darkred;
+         background-color: red;
+         color: black;
+         color: gold;
+     }
+
+     #action a:hover {
+         border: 5px inset darkred;
+     }
+
+     a {
+         color: white;
+     }
+
+     div {
+         padding: 5%;
+     }
+    </style>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
