@@ -1,0 +1,6 @@
+services:
+  socat:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 41640:41640
