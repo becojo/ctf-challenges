@@ -1,0 +1,6 @@
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 54098:54098
