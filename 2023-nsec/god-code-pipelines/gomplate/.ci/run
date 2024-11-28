@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+output=`cat .ci/changelog.gomplate.md | gomplate --datasource changelog.yml`
+
+if diff <(cat CHANGELOG.md) <(echo "$output"); then
+    echo "CHANGELOG.md matches changelog.yml"
+else
+    echo "Error: CHANGELOG.md differs from changelog.yml"
+    echo "Please regenerate CHANGELOG.md using the following command before submitting changes:"
+    echo "  cat .ci/changelog.gomplate.md | gomplate --datasource changelog.yml > CHANGELOG.md"
+    exit 1
+fi

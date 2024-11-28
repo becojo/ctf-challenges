@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import subprocess
+import json
+import sys
+
+cmd = ["semgrep", "--error", "--no-rewrite-rule-ids", "--disable-version-check"]
+
+with open(".semgrep.config.json") as f:
+    config = json.load(f)
+
+for key, value in config.items():
+    if key == "format":
+        cmd.append(f"--{value}")
+    elif key == "config":
+        cmd.extend(c for v in value for c in ["--config", v])
+    elif key == "verbose":
+        if value:
+            cmd.append("--verbose")
+
+proc = subprocess.run(cmd)
+
+sys.exit(proc.returncode)

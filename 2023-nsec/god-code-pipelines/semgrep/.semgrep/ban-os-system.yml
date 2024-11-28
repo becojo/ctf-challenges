@@ -1,0 +1,8 @@
+rules:
+  - id: ban-os-system
+    severity: ERROR
+    languages: [python]
+    message: "Usage of os.system is prohibited"
+    patterns:
+      - pattern: |
+          os.system(...)

@@ -1,0 +1,24 @@
+services:
+  prettier:
+    build:
+      context: .
+      target: prettier
+    restart: unless-stopped
+    ports:
+      - 54090:22
+
+  semgrep:
+    build:
+      context: .
+      target: semgrep
+    restart: unless-stopped
+    ports:
+      - 54091:22
+
+  gomplate:
+    build:
+      context: .
+      target: gomplate
+    restart: unless-stopped
+    ports:
+      - 54092:22

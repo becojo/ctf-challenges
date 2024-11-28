@@ -1,0 +1,5 @@
+{
+    "format": "emacs",
+    "config": [".semgrep"],
+    "verbose": true
+}
