@@ -1,0 +1,52 @@
+body {
+  background-color: rgb(92, 92, 75);
+  color: rgb(20, 50, 75);
+  margin: 0;
+  font-family: monospace;
+}
+
+#app {
+  box-sizing: border-box;
+  padding: 5%;
+  background-color: rgb(224, 206, 193);
+  width: 800px;
+  margin: 10% auto;
+}
+
+input, textarea {
+  font: inherit;
+  box-sizing: border-box;
+  background-color: rgb(173, 160, 142);
+  border-width: 5px;
+  border-color: rgb(219, 204, 182);
+  width: 100%;
+  border-style: inset;
+  padding: 20px;
+}
+
+#viewpdf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(232, 198, 169);
+  padding: 1em;
+  font-size: 1.5em;
+}
+
+@media print {
+    body {
+        margin: 0;
+        border: 0;
+        height: 100dh;
+        padding-top: 5%;
+        background-color: white;
+    }
+
+    #viewpdf {
+        display: none;
+    }
+
+    #app {
+      background-color: white;
+    }
+}

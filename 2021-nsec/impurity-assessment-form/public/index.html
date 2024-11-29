@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Herbal Purity - Impurity Assesment Form</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>Impurity Assesment Form</h1>
+      <form action="?" method="POST">
+        <input name="query" type="hidden" value="mutation($input:TreatmentInput!){treatmentCreate(input: $input){id}}"/>
+        
+        <p>
+          Referring healer: <input name="healer" />
+        </p>
+
+        <p>Patient name: <input name="patient" /></p>
+
+        <p>
+          Description of impurity symptoms (Markdown supported): <br/>
+            
+          <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </p>
+        
+        <input type="submit" value="Create" />
+      </form>
+    </div>
+    <script>
+     document.forms[0].addEventListener('submit', function(e) {
+       e.preventDefault();
+
+       var { healer, patient, query } = this;
+       
+       variables = {
+         input: {
+           healer: healer.value,
+           patient: patient.value,
+           description: description.value,
+         }
+       }
+
+       fetch('/graphql', { method: 'POST',
+                           body: JSON.stringify({ query: query.value, variables }),
+                           headers: { 'Content-Type': 'application/json' }
+       }).then(r => r.json()).then(r => {
+         location.href = `/render.html?id=${r.data.treatmentCreate.id}`;
+       });
+     });
+    </script>
+  </body>
+</html>

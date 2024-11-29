@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Impurity Assesment Form</title>
+    <script src="markdown-it.min.js"></script>
+    <script src="dompurify.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a href="#" id="viewpdf">View as PDF</a>
+
+    <div id="app"></div>
+
+    <script>
+     var id = decodeURIComponent(location.search.split('id=')[1]);
+     var cache = {};
+
+     function graphql(query) {
+       var http = new XMLHttpRequest();
+
+       http.open('POST', '/graphql', false);
+       http.setRequestHeader('Content-Type', 'application/json');
+
+       http.send(JSON.stringify({ query: query }));
+
+       var response = JSON.parse(http.responseText);
+
+       return response.data;
+     }
+
+     function cacheFetch(id, etag, fn) {
+       var entry;
+       if((entry = cache[id]) && entry[etag]) return entry[etag];
+       if(!entry) entry = cache[id] = {};
+       return entry[etag] = fn();
+     }
+
+     function markdown(body, options) {
+       var defaults = { html: false };
+       options = options || {};
+
+       for(var i in options) {
+         defaults[i] = options[i];
+       }
+
+       var html = markdownit(defaults).render(body);
+
+       if(!defaults.html) {
+         html = DOMPurify.sanitize(html);
+       }
+
+       return html;
+     }
+
+     function getTreatment(id) {
+       var treatment = graphql('{ treatment(id: "'+id+'") { id etag healer patient description } }').treatment;
+       if(!treatment) return;
+       return cacheFetch(treatment.id, treatment.etag, function() {
+         return treatment;
+       });
+     }
+
+     function template(treatment) {
+       if(!treatment) return '404';
+
+       return markdown([
+         '# Impurity Assesment Form',
+         '## Healer',
+         treatment.healer + ' - [Herbal Purity](http://herbal-purity.ctf/)',
+         '## Patient',
+         treatment.patient,
+         '## Impurity symptoms',
+         treatment.description,
+       ].join("\n"))
+     }
+
+     var report = getTreatment(id);
+
+     document.getElementById('app').innerHTML = template(report);
+
+     document.getElementById('viewpdf').onclick = function() {
+      location.href = location.href.replace('render.html', 'render.pdf');
+     };
+
+     // this field is only accessible when rendered as a pdf
+     graphql('{ flag }').flag;
+    </script>
+  </body>
+</html>
