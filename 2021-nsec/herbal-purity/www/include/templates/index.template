@@ -1,0 +1,9 @@
+<h1>{{ $title }}</h1>
+
+{{ $searchForm }}
+
+{{ $renderTable }}
+
+<p>
+  <a href="create_{{ $id }}.php">Create {{ $title }}</a>
+</p>

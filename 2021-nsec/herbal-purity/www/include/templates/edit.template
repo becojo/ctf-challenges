@@ -1,0 +1,17 @@
+{{ $model_id }}
+
+
+<form action="?" method="POST">
+  {{ $renderForm }}
+
+  <p>
+    <input name="action" type="hidden" value="edit" />
+
+    <input type="submit" value="Edit" />
+  </p>
+</form>
+
+
+<p>
+  <a href="{{ $backUrl }}">Back</a>
+</p>

@@ -1,0 +1,7 @@
+Are you sure you want the reset the password of {{ $username }}?
+
+<form action="?">
+  <input name="name" type="hidden" value="{{ $username }}"/>
+  <input name="id" type="hidden" value="{{ $model_id }}"/>
+  <input name="action" type="submit" value="Confirm"/>
+</form>

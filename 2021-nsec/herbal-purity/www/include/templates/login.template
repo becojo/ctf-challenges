@@ -1,0 +1,18 @@
+<form action="?" method="POST">
+  <p>
+    Username: <input name="username" type="text" value=""/>
+  </p>
+
+  <p>
+    Password: <input name="password" type="password" value=""/>
+  </p>
+
+  <p>
+    <input type="submit" value="Log In"/>
+    <input name="action" type="hidden" value="login"/>
+  </p>
+</form>
+
+<p>
+  <a href="source.tar.gz">Source</a>
+</p>

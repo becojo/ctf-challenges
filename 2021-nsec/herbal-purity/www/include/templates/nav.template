@@ -1,0 +1,7 @@
+
+<a href="healers.php">Healers</a>
+<a href="products.php">Products</a>
+<a href="followers.php">Followers</a>
+<a href="appointments.php">Appointments</a>
+
+<a href="?action=logout">Log out</a>

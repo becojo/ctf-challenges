@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>{{ $title }}</title>
+    <link href="include/styles.css?v={{ $v }}" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="nav">
+      {{ $nav }}
+    </div>
+
+    {{ $renderFlash }}
+
+    <div class="body">
+      {{ $body }}
+    </div>
+  </body>
+</html>
