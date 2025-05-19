@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+level = ARGV[0] || ""
+unless File.exist?(level)
+    puts "Level `#{level}` not found"
+    puts "usage: bin/build <level.rb>"
+    exit 1
+end
+
+level = File.basename(level, ".rb")
+TAG = level
+
+$:.unshift File.expand_path("../..", __FILE__)
+
+require 'lib/dsl'
+require level

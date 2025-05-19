@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+
+spawn docker run --platform=linux/amd64 --rm -it "$env(IMAGE)"
+
+expect "password"
+
+send "$env(INPUT)\r"
+send "\r"
+
+interact
