@@ -6,6 +6,7 @@ RUN openssl rand -hex 20 > /secret
 RUN echo "FLAG-$(openssl rand -hex 20)" > /motd
 RUN echo "FLAG-$(openssl rand -hex 20)" > "/flag-is-here-$(openssl rand -hex 10)"
 COPY ./db.sqlite3 /var/www/db.sqlite3
+RUN chown www-data:www-data /var/www /var/www/db.sqlite3
 
 WORKDIR /var/www
 RUN tar -czvf /tmp/source.tar.gz html && mv /tmp/source.tar.gz /var/www/html
