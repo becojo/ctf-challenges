@@ -1,0 +1,354 @@
+# pydisasm version 6.3.0
+# CPython Python bytecode 3.14 (3627)
+#   Disassembled from CPython Python 3.14.2 (main, Dec  5 2025, 21:11:58) [Clang 21.1.4 ]
+# Timestamp in code: 1780102697 (2026-05-29 20:58:17)
+# Source code size mod 2**32: 59907 bytes
+# Method Name:       <module>
+# Filename:          couleuvre.py
+# Argument count:    0
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  0
+# Stack size:        13
+# Flags:             0x00000000 (0x0)
+# First Line:        1
+# Constants:
+#    0: 0
+#    1: None
+#    2: '\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠣⡀⠀⠀⠀⠀⡇⠀⠀⠀⢸⠉⠉⠓⠓⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠉⠙⠲⠀⠀⠀⠀⠀⣇⠀⠑⡄⠀⠀⢨⡀⠀⠀⣚⢀⣀⡀⣀⡀⠀⠀⠀⠀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠄⠀⠀⠓⢴⢱⠀⠀⠀⠅⠉⠁⠁⠉⠉⠁⠀⠀⡨⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠉⠓⠒⠉⠉⠀⠉⡆⠀⠀⠀⠉⣧⠀⠀⠀⠀⠙⠇⠀⠀⡇⣄⠀⠀⠀⠀⠀⠀⠀⢀⣅⣤⡂⡪⠭⠂⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠀⠀⠀⠀⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠊⠛⠆⠀⠀⠌⠀⠙⠄⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠋⠁⠀⠀⠀⠀⢀⠤⠊⠓⠉⠋⠈⠉⠐⠐⠤⣄⠀⠀⠀⣨⠃⠀⠀⠀⠡⡀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠒⠁⠁⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⣍⠣⠀⠀⠀⠀⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⢨⢷⢵⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠥⠿⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⢱⣶⠀⠀⠀⠀⠀⠀⣴⡄⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠁⠀⠀⠀⠀⠀⠀⠈⠛⠀⣟⡇⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢇⡅⠀⠀⠀⠀⠀⠀⠀⡔⣺⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⠀⠀⠀⠀⡔⡠⠏⠀⠀⠀⠀⠀⠀⠀⠀⣳⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡎⡍⠋⠉\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠦⠤⠤⠤⠝⠙⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠇⠀⠀⠀⠀⠀⠀⠀⣠⢪⠋⡜⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠁⡎⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⡰⠔⠋⠏⢥⠥⠃⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣎⡤⡠⠖⠋⠀⠀⠀⠀⠀⢀⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠷⠁⠀⠀⠀⠀⠀⠀⠀⠂⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰\n           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡽\n          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠑⠛⢢⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⢁⡀\n             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠑⠀⢀⣻⡶⠶⠶⠯⠵⢌⣥⠤⢖⠒⢐⡐⡒⠦⠊⠉⠉⠉⠀⠈⠉\n\n'
+#    3: <code object p at 0x101558e70, file "couleuvre.py", line 29>
+#    4: <code object pl at 0x101595530, file "couleuvre.py", line 34>
+#    5: <code object h at 0x101523370, file "couleuvre.py", line 39>
+#    6: <code object r at 0x1015a8f10, file "couleuvre.py", line 42>
+#    7: <code object sr at 0x1015a8e00, file "couleuvre.py", line 46>
+#    8: 'Quel est le mot de passssssssssse ?  What is the passsssssssssword ?\n'
+#    9: '> '
+#   10: '0c6812c4abee918609d0cf5771ab837008f70df4'
+#   11: '%c'
+#   12: Ellipsis
+# Names:
+#    0: hashlib
+#    1: time
+#    2: snek
+#    3: p
+#    4: pl
+#    5: h
+#    6: r
+#    7: sr
+#    8: input
+#    9: s
+#   10: hf
+#   11: exec
+
+  0:           0 RESUME               0
+
+  1:           2 LOAD_SMALL_INT       0
+               4 LOAD_CONST           (None)
+               6 IMPORT_NAME          (hashlib) ; TOS = import_module(hashlib)
+               8 STORE_NAME           (hashlib) ; hashlib = import_module(hashlib)
+
+  2:          10 LOAD_SMALL_INT       0
+              12 LOAD_CONST           (None)
+              14 IMPORT_NAME          (time) ; TOS = import_module(time)
+              16 STORE_NAME           (time) ; time = import_module(time)
+
+  3:          18 LOAD_CONST           ("\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠣⡀⠀⠀⠀⠀⡇⠀⠀⠀⢸⠉⠉⠓⠓⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠉⠙⠲⠀⠀⠀⠀⠀⣇⠀⠑⡄⠀⠀⢨⡀⠀⠀⣚⢀⣀⡀⣀⡀⠀⠀⠀⠀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠄⠀⠀⠓⢴⢱⠀⠀⠀⠅⠉⠁⠁⠉⠉⠁⠀⠀⡨⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠉⠓⠒⠉⠉⠀⠉⡆⠀⠀⠀⠉⣧⠀⠀⠀⠀⠙⠇⠀⠀⡇⣄⠀⠀⠀⠀⠀⠀⠀⢀⣅⣤⡂⡪⠭⠂⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠀⠀⠀⠀⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠊⠛⠆⠀⠀⠌⠀⠙⠄⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠋⠁⠀⠀⠀⠀⢀⠤⠊⠓⠉⠋⠈⠉⠐⠐⠤⣄⠀⠀⠀⣨⠃⠀⠀⠀⠡⡀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠒⠁⠁⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⣍⠣⠀⠀⠀⠀⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⢨⢷⢵⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠥⠿⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⢱⣶⠀⠀⠀⠀⠀⠀⣴⡄⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠁⠀⠀⠀⠀⠀⠀⠈⠛⠀⣟⡇⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢇⡅⠀⠀⠀⠀⠀⠀⠀⡔⣺⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⠀⠀⠀⠀⡔⡠⠏⠀⠀⠀⠀⠀⠀⠀⠀⣳⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡎⡍⠋⠉\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠦⠤⠤⠤⠝⠙⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠇⠀⠀⠀⠀⠀⠀⠀⣠⢪⠋⡜⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠁⡎⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⡰⠔⠋⠏⢥⠥⠃⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣎⡤⡠⠖⠋⠀⠀⠀⠀⠀⢀⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠷⠁⠀⠀⠀⠀⠀⠀⠀⠂⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀\n⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰\n           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡽\n          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠑⠛⢢⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⢁⡀\n             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠑⠀⢀⣻⡶⠶⠶⠯⠵⢌⣥⠤⢖⠒⢐⡐⡒⠦⠊⠉⠉⠉⠀⠈⠉\n\n")
+              20 STORE_NAME           (snek) ; snek =
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠣⡀⠀⠀⠀⠀⡇⠀⠀⠀⢸⠉⠉⠓⠓⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠉⠙⠲⠀⠀⠀⠀⠀⣇⠀⠑⡄⠀⠀⢨⡀⠀⠀⣚⢀⣀⡀⣀⡀⠀⠀⠀⠀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠄⠀⠀⠓⢴⢱⠀⠀⠀⠅⠉⠁⠁⠉⠉⠁⠀⠀⡨⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠉⠓⠒⠉⠉⠀⠉⡆⠀⠀⠀⠉⣧⠀⠀⠀⠀⠙⠇⠀⠀⡇⣄⠀⠀⠀⠀⠀⠀⠀⢀⣅⣤⡂⡪⠭⠂⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⠀⠀⠀⠀⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠊⠛⠆⠀⠀⠌⠀⠙⠄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡤⠋⠁⠀⠀⠀⠀⢀⠤⠊⠓⠉⠋⠈⠉⠐⠐⠤⣄⠀⠀⠀⣨⠃⠀⠀⠀⠡⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠒⠁⠁⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡌⣍⠣⠀⠀⠀⠀⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢨⢨⢷⢵⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠥⠿⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⢱⣶⠀⠀⠀⠀⠀⠀⣴⡄⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠁⠀⠀⠀⠀⠀⠀⠈⠛⠀⣟⡇⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢇⡅⠀⠀⠀⠀⠀⠀⠀⡔⣺⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⠀⠀⠀⠀⡔⡠⠏⠀⠀⠀⠀⠀⠀⠀⠀⣳⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡎⡍⠋⠉
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠦⠤⠤⠤⠝⠙⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠇⠀⠀⠀⠀⠀⠀⠀⣠⢪⠋⡜⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠖⠁⡎⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⡰⠔⠋⠏⢥⠥⠃⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣎⡤⡠⠖⠋⠀⠀⠀⠀⠀⢀⡂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠷⠁⠀⠀⠀⠀⠀⠀⠀⠂⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰
+           ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢥⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡽
+          ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠑⠛⢢⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠿⢁⡀
+             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠁⠑⠀⢀⣻⡶⠶⠶⠯⠵⢌⣥⠤⢖⠒⢐⡐⡒⠦⠊⠉⠉⠉⠀⠈⠉
+
+ 29:          22 LOAD_CONST           (<code object p at 0x101558e70, file "couleuvre.py", line 29>)
+              24 MAKE_FUNCTION
+              26 STORE_NAME           (p)
+
+ 34:          28 LOAD_CONST           (<code object pl at 0x101595530, file "couleuvre.py", line 34>)
+              30 MAKE_FUNCTION
+              32 STORE_NAME           (pl)
+
+ 39:          34 LOAD_CONST           (<code object h at 0x101523370, file "couleuvre.py", line 39>)
+              36 MAKE_FUNCTION
+              38 STORE_NAME           (h)
+
+ 42:          40 LOAD_CONST           (<code object r at 0x1015a8f10, file "couleuvre.py", line 42>)
+              42 MAKE_FUNCTION
+              44 STORE_NAME           (r)
+
+ 46:          46 LOAD_CONST           (<code object sr at 0x1015a8e00, file "couleuvre.py", line 46>)
+              48 MAKE_FUNCTION
+              50 STORE_NAME           (sr)
+
+ 49:          52 LOAD_NAME            (pl)
+              54 PUSH_NULL
+              56 LOAD_NAME            (snek)
+              58 CALL                 (1 positional) ; TOS = pl(snek)
+              66 POP_TOP
+
+ 50:          68 LOAD_NAME            (p)
+              70 PUSH_NULL
+              72 LOAD_CONST           ("Quel est le mot de passssssssssse ?  What is the passsssssssssword ?\n")
+              74 CALL                 (1 positional) ; TOS = p("Quel est le mot de passssssssssse ?  What is the passsssssssssword ?\n")
+              82 POP_TOP
+
+ 51:          84 LOAD_NAME            (input)
+              86 PUSH_NULL
+              88 LOAD_CONST           ("> ")
+              90 CALL                 (1 positional) ; TOS = input("> ")
+              98 STORE_NAME           (s)
+
+ 52:         100 LOAD_CONST           ("0c6812c4abee918609d0cf5771ab837008f70df4")
+             102 STORE_NAME           (hf) ; hf = 0c6812c4abee918609d0cf5771ab837008f70df4
+
+ 53:         104 LOAD_NAME            (exec)
+             106 PUSH_NULL
+             108 LOAD_CONST           ("%c")
+             110 LOAD_CONST           (Ellipsis)
+             112 LOAD_CONST           (Ellipsis)
+             114 COMPARE_OP           (==) ; TOS = Ellipsis == Ellipsis
+             118 LOAD_CONST           (Ellipsis)
+             120 LOAD_CONST           (Ellipsis)
+             122 COMPARE_OP           (==) ; TOS = Ellipsis == Ellipsis
+             126 UNARY_NEGATIVE
+
+[snip]
+
+            86998 COMPARE_OP           (==) ; TOS = Ellipsis == Ellipsis
+            87002 UNARY_NEGATIVE
+            87004 BINARY_OP            (-) ; TOS = Ellipsis == Ellipsis -
+            87016 BINARY_OP            (*) ; TOS = Ellipsis == Ellipsis * Ellipsis == Ellipsis -  * Ellipsis == Ellipsis * Ellipsis == Ellipsis -
+            87028 LIST_APPEND          1
+            87030 CALL_INTRINSIC_1     (INTRINSIC_LIST_TO_TUPLE)
+            87032 BINARY_OP            (%)
+            87044 CALL                 (1 positional)
+            87052 POP_TOP
+            87054 LOAD_CONST           (None)
+            87056 RETURN_VALUE         return None
+
+
+# Method Name:       p
+# Filename:          couleuvre.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  2
+# Stack size:        7
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        29
+# Constants:
+#    0: ''
+#    1: True
+#    2: ('end', 'flush')
+#    3: 0.05
+#    4: None
+# Names:
+#    0: print
+#    1: time
+#    2: sleep
+# Varnames:
+#	s, c
+# Positional arguments:
+#	s
+# Local variables:
+#    1: c
+
+ 29:           0 RESUME               0
+
+ 30:           2 LOAD_FAST_BORROW     (s)
+               4 GET_ITER
+               6 FOR_ITER             (to 88) ; To line 30
+              10 STORE_FAST           (c)
+
+ 31:          12 LOAD_GLOBAL          (NULL + print)
+              22 LOAD_FAST_BORROW     (c)
+              24 LOAD_CONST           ("")
+              26 LOAD_CONST           (True)
+              28 LOAD_CONST           (('end', 'flush'))
+              30 CALL_KW              3
+              38 POP_TOP
+
+ 32:          40 LOAD_GLOBAL          (time)
+              50 LOAD_ATTR            (sleep)
+              70 PUSH_NULL
+              72 LOAD_CONST           (0.05)
+              74 CALL                 (1 positional)
+              82 POP_TOP
+              84 JUMP_BACKWARD        (to 6)
+
+ 30:     >>   88 END_FOR
+              90 POP_ITER
+              92 LOAD_CONST           (None)
+              94 RETURN_VALUE         return None
+
+
+# Method Name:       pl
+# Filename:          couleuvre.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        4
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        34
+# Constants:
+#    0: 0.05
+#    1: None
+# Names:
+#    0: splitlines
+#    1: print
+#    2: time
+#    3: sleep
+# Varnames:
+#	s
+# Positional arguments:
+#	s
+
+ 34:           0 RESUME               0
+
+ 35:           2 LOAD_FAST_BORROW     (s)
+               4 LOAD_ATTR            (NULL|self + splitlines) ; TOS = s.NULL|self + splitlines
+              24 CALL                 (0 positional)
+              32 GET_ITER
+              34 FOR_ITER             (to 110) ; To line 35
+              38 STORE_FAST           (s)
+
+ 36:          40 LOAD_GLOBAL          (NULL + print)
+              50 LOAD_FAST_BORROW     (s)
+              52 CALL                 (1 positional)
+              60 POP_TOP
+
+ 37:          62 LOAD_GLOBAL          (time)
+              72 LOAD_ATTR            (sleep)
+              92 PUSH_NULL
+              94 LOAD_CONST           (0.05)
+              96 CALL                 (1 positional)
+             104 POP_TOP
+             106 JUMP_BACKWARD        (to 34)
+
+ 35:     >>  110 END_FOR
+             112 POP_ITER
+             114 LOAD_CONST           (None)
+             116 RETURN_VALUE         return None
+
+
+# Method Name:       h
+# Filename:          couleuvre.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        4
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        39
+# Constants:
+#    0: None
+# Names:
+#    0: hashlib
+#    1: sha1
+#    2: encode
+#    3: hexdigest
+# Varnames:
+#	s
+# Positional arguments:
+#	s
+
+ 39:           0 RESUME               0
+
+ 40:           2 LOAD_GLOBAL          (hashlib)
+              12 LOAD_ATTR            (sha1)
+              32 PUSH_NULL
+              34 LOAD_FAST_BORROW     (s)
+              36 LOAD_ATTR            (NULL|self + encode) ; TOS = s.NULL|self + encode
+              56 CALL                 (0 positional)
+              64 CALL                 (1 positional)
+              72 LOAD_ATTR            (NULL|self + hexdigest)
+              92 CALL                 (0 positional)
+             100 RETURN_VALUE
+
+
+# Method Name:       r
+# Filename:          couleuvre.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        3
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        42
+# Constants:
+#    0: 0
+#    1: None
+# Names:
+#    0: print
+#    1: exit
+# Varnames:
+#	s
+# Positional arguments:
+#	s
+
+ 42:           0 RESUME               0
+
+ 43:           2 LOAD_GLOBAL          (NULL + print)
+              12 LOAD_FAST_BORROW     (s)
+              14 CALL                 (1 positional)
+              22 POP_TOP
+
+ 44:          24 LOAD_GLOBAL          (NULL + exit)
+              34 LOAD_SMALL_INT       0
+              36 CALL                 (1 positional)
+              44 POP_TOP
+              46 LOAD_CONST           (None)
+              48 RETURN_VALUE         return None
+
+
+# Method Name:       sr
+# Filename:          couleuvre.py
+# Argument count:    1
+# Position-only argument count: 0
+# Keyword-only arguments: 0
+# Number of locals:  1
+# Stack size:        4
+# Flags:             0x00000003 (NEWLOCALS | OPTIMIZED)
+# First Line:        46
+# Constants:
+#    0: 'The flag is DCI{'
+#    1: '}'
+#    2: None
+# Names:
+#    0: r
+# Varnames:
+#	s
+# Positional arguments:
+#	s
+
+ 46:           0 RESUME               0
+
+ 47:           2 LOAD_GLOBAL          (NULL + r)
+              12 LOAD_CONST           ("The flag is DCI{")
+              14 LOAD_FAST_BORROW     (s)
+              16 BINARY_OP            (+) ; TOS = "The flag is DCI{" + s
+              28 LOAD_CONST           ("}")
+              30 BINARY_OP            (+) ; TOS = "The flag is DCI{" + s + "}"
+              42 CALL                 (1 positional)
+              50 POP_TOP
+              52 LOAD_CONST           (None)
+              54 RETURN_VALUE         return None
+
